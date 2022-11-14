@@ -21,7 +21,11 @@ int main()
   std::cout << "The interval between them is " << minutesUntil(time1, time2) << " minutes." << std::endl; // would print 190 minutes
   std::cout << "---------------------------------------\n";
 
-  
+  // Task B
+  Time time3 = { 8, 10 };
+  Time result = addMinutes(time3, 75);
+
+  std::cout << "Task B\n\nThe new time is " << result.h << ":" << result.m << std::endl; // should return {9, 25} 
   
   return 0;
 }
