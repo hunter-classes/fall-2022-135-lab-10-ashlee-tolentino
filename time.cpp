@@ -36,3 +36,32 @@ int minutesUntil(Time earlier, Time later)
   return result;
 }
 
+/**
+   Task B: This function creates and returns a new moment of time that is min minutes after time0.
+ */
+Time addMinutes(Time time0, int min)
+{
+  Time result;
+  int hour = time0.h;
+  int minutes = time0.m;
+
+  
+  if(time0.m + min < 60)
+  {
+    minutes = time0.m + min;
+  }
+  else if(time0.m + min == 60)
+  {
+    minutes = 0;
+    hour++;
+  }
+  else
+  {
+    hour = hour + ((time0.m + min) / 60);
+    minutes = (time0.m + min) % 60;
+  }
+  
+  result.h = hour;
+  result.m = minutes;
+  return result;
+}
