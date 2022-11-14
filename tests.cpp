@@ -1,8 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "funcs.h"
-#include "coord3d.h"
-#include <cmath>
+#include "time.h"
+#include "Time_class.h"
 
 TEST_CASE("Length"){
   Coord3D point1 = {10, 20, 30};
