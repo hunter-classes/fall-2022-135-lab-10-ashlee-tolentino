@@ -8,7 +8,10 @@ This program...
 */
 
 #include <iostream>
+#include <string>
 #include "Time_class.h"
+#include "Movie_class.h"
+#include "TimeSlot_class.h"
 #include "time.h"
 
 /*
@@ -16,6 +19,21 @@ class Time {
 public:
     int h;
     int m;
+};
+
+enum Genre {ACTION, COMEDY, DRAMA, ROMANCE, THRILLER};
+
+class Movie { 
+public: 
+  std::string title;
+  Genre genre;     // only one genre per movie
+  int duration;    // in minutes
+};
+
+class TimeSlot { 
+public: 
+    Movie movie;     // what movie
+    Time startTime;  // when it starts
 };
 */
 
@@ -64,4 +82,45 @@ Time addMinutes(Time time0, int min)
   result.h = hour;
   result.m = minutes;
   return result;
+}
+
+
+// Helper functions for Time, Movie, and TimeSlot Classes
+std::string printTime(Time time)
+{
+  std::string result = "";
+  result = result + std::to_string(time.h) + ":" + std::to_string(time.m);
+  return result;
+}
+
+std::string printMovie(Movie mv)
+{
+  std::string result = "";
+  std::string g;
+  switch (mv.genre)
+  {
+    case ACTION   : g = "ACTION"; break;
+    case COMEDY   : g = "COMEDY"; break;
+    case DRAMA    : g = "DRAMA";  break;
+    case ROMANCE  : g = "ROMANCE"; break;
+    case THRILLER : g = "THRILLER"; break;
+  }
+  result = result + mv.title + " " + g + " (" + std::to_string(mv.duration) + " min)";
+  return result;
+}
+
+
+/**
+   Task C: This function prints out the movie title, genre, duration, the starting time, and the ending time.
+ */
+std::string getTimeSlot(TimeSlot ts)
+{
+  std::string str = "";
+  str += printMovie(ts.movie);
+  str += " [starts at ";
+  str += printTime(ts.startTime);
+  str += ", ends by ";
+  Time result = addMinutes(ts.startTime, ts.movie.duration);
+  str = str + std::to_string(result.h) + ":" + std::to_string(result.m) + "]\n";
+  return str;
 }
