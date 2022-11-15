@@ -124,3 +124,14 @@ std::string getTimeSlot(TimeSlot ts)
   str = str + std::to_string(result.h) + ":" + std::to_string(result.m) + "]\n";
   return str;
 }
+
+/**
+   Task D: This function produces and returns a new TimeSlot for the movie nextMovie, scheduled immediately after the timeslot ts.
+ */
+TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie)
+{
+  TimeSlot result;
+  result.movie = nextMovie;
+  result.startTime = addMinutes(ts.startTime, ts.movie.duration);
+  return result;
+}
