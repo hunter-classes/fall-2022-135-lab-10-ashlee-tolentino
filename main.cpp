@@ -59,10 +59,22 @@ int main()
   std::cout << resultSlot2;
   std::string resultSlot3 = getTimeSlot(evening);
   std::cout << resultSlot3;
-  
   std::cout << "---------------------------------------\n";
  
   // Task D
+  std::cout << "Task D\n\n";
+  std::cout << "Previous Movie TimeSlot:\n";
+  Movie prevMov = {"The Little Mermaid", ROMANCE, 120};
+  TimeSlot prevMovie = {prevMov, {14, 10}};
+  std::string prevMovieSlot = getTimeSlot(prevMovie);
+  std::cout << prevMovieSlot;
+
+  std::cout << "\nNext Movie TimeSlot:\n";
+  Movie nextMov = {"Cinderella", DRAMA, 120};
+  TimeSlot nextMovie = scheduleAfter(prevMovie, nextMov);
+  std::string nextMovieSlot = getTimeSlot(nextMovie);
+  std::cout << nextMovieSlot;
+  std::cout << "---------------------------------------\n";
   
   
   return 0;
