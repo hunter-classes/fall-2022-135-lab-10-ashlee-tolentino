@@ -4,7 +4,7 @@ Course: CSCI-135
 Instructor: Michael Zamansky
 Assignment: Lab10
 
-This program...
+This program works with classes, enums, and movies.
 */
 
 #include <iostream>
@@ -133,5 +133,48 @@ TimeSlot scheduleAfter(TimeSlot ts, Movie nextMovie)
   TimeSlot result;
   result.movie = nextMovie;
   result.startTime = addMinutes(ts.startTime, ts.movie.duration);
+  return result;
+}
+
+/**
+   Task E: This function returns true if the two time slots overlap, otherwise return false. (Take into account the starting times of the time slots and the duration of the scheduled movies.)
+ */
+bool timeOverlap(TimeSlot ts1, TimeSlot ts2)
+{
+  bool result = false;
+  int start_time1_in_min = minutesSinceMidnight(ts1.startTime);
+  int start_time2_in_min = minutesSinceMidnight(ts2.startTime);
+  if(start_time1_in_min == start_time2_in_min)
+  {
+    result = true;
+    return result;
+  }
+  else if(start_time1_in_min < start_time2_in_min)
+  {
+    if((start_time1_in_min + ts1.movie.duration) <= start_time2_in_min)
+    {
+      result = false;
+      return result;
+    }
+    else
+    {
+      result = true;
+      return result;
+    }
+  }
+  else
+  {
+    if((start_time2_in_min + ts2.movie.duration) <= start_time1_in_min)
+    {
+      result = false;
+      return result;
+    }
+    else
+    {
+      result = true;
+      return result;
+    }
+  }
+
   return result;
 }
