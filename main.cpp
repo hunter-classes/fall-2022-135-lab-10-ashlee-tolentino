@@ -4,7 +4,7 @@ Course: CSCI-135
 Instructor: Michael Zamansky
 Assignment: Lab10
 
-This program...
+This program works with classes, enums, and movies.
 */
 
 #include <iostream>
