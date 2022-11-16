@@ -75,7 +75,23 @@ int main()
   std::string nextMovieSlot = getTimeSlot(nextMovie);
   std::cout << nextMovieSlot;
   std::cout << "---------------------------------------\n";
-  
+
+  //Task E
+  std::cout << "Task E\n\n";
+  std::cout << "Movie 1\n";
+  Movie m1 = {"Tangled", ACTION, 90};
+  TimeSlot ts1 = {m1, {10, 00}};
+  std::string first_ts = getTimeSlot(ts1);
+  std::cout << first_ts;
+
+  std::cout << "\nMovie 2\n";
+  Movie m2 = {"Sleeping Beauty", DRAMA, 90};
+  TimeSlot ts2 = {m2, {11, 30}};
+  std::string second_ts = getTimeSlot(ts2);
+  std::cout << second_ts;
+
+  bool are_overlapping = timeOverlap(ts1, ts2);
+  std::cout << "\nDo Movie 1 and Movie 2 overlap? (1 = true, 0 = false)\n" << are_overlapping << std::endl;
   
   return 0;
 }
